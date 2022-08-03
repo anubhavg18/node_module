@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ConstantsService = exports.ApicallInterceptor = exports.UserValidationPipe = exports.AuthGuard = exports.CustomException = exports.BaseException = exports.AzureService = exports.ConfigService = exports.ApiCallsService = exports.Logger = exports.getLogger = void 0;
+exports.ConstantsService = exports.ApicallInterceptor = exports.UserValidationPipe = exports.AuthGuard = exports.CustomException = exports.BaseException = exports.AzureService = exports.ConfigService = exports.ApiCallsService = void 0;
 const base_exception_1 = require("./errorhelper/base-exception");
 Object.defineProperty(exports, "BaseException", { enumerable: true, get: function () { return base_exception_1.BaseException; } });
 const custom_exception_1 = require("./errorhelper/custom-exception");
@@ -13,9 +13,6 @@ const apicall_interceptor_1 = require("./utils/apicall.interceptor");
 Object.defineProperty(exports, "ApicallInterceptor", { enumerable: true, get: function () { return apicall_interceptor_1.ApicallInterceptor; } });
 const constants_service_1 = require("./utils/constants.service");
 Object.defineProperty(exports, "ConstantsService", { enumerable: true, get: function () { return constants_service_1.ConstantsService; } });
-const logging_service_1 = require("./utils/logging.service");
-Object.defineProperty(exports, "getLogger", { enumerable: true, get: function () { return logging_service_1.getLogger; } });
-Object.defineProperty(exports, "Logger", { enumerable: true, get: function () { return logging_service_1.Logger; } });
 const api_calls_service_1 = require("./utils/api-calls.service");
 Object.defineProperty(exports, "ApiCallsService", { enumerable: true, get: function () { return api_calls_service_1.ApiCallsService; } });
 const config_service_1 = require("./utils/config.service");
