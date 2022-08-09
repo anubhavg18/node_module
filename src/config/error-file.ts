@@ -1,8 +1,8 @@
 export const error = {
-    "FLIGHT_SAME_SOURCE_DESTINATION" : {
+    "USER_NOT_FOUND": {
         "exceptionCode": "30001",
-        "message": "Source and destination can not be same",
+        "message": "Source and user can not be found",
         "target": "test",
-        "httpStatus": 400
+        "httpStatus": 404
     }
 } as const;

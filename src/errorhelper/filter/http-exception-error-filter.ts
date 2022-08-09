@@ -1,10 +1,27 @@
-import { Catch, ArgumentsHost } from '@nestjs/common';
+import { ArgumentsHost, Catch, HttpException, HttpStatus } from '@nestjs/common';
+import { Response } from "express";
 import { BaseException } from '../base-exception';
 import { BaseExceptionFilter } from './base-exception-filter';
 
-@Catch(BaseException)
+@Catch()
 export class HttpExceptionErrorFilter extends BaseExceptionFilter {
   catch(exception: BaseException, host: ArgumentsHost) {
-    this.writeToClient(host, exception);
+    const context = host.switchToHttp();
+    const response = context.getResponse<Response>();
+    const request = context.getRequest<Request>();
+    const status = exception instanceof HttpException
+      ? exception.getStatus()
+      : HttpStatus.INTERNAL_SERVER_ERROR;
+
+    response.status(status).json({
+      "status": status,
+      "error": {
+        "error": {
+          "code": "30001",
+          "message": exception.message,
+          "target": request.url
+        }
+      }
+    });
   }
 }
