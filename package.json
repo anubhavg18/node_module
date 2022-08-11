@@ -1,6 +1,6 @@
 {
-  "name": "logger-module",
-  "version": "0.0.3",
+  "name": "saudia-service-core",
+  "version": "0.0.1",
   "description": "",
   "author": "",
   "private": true,
@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
+    "@nestjs/axios": "^0.1.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "reflect-metadata": "^0.1.13",
