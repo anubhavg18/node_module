@@ -1,7 +1,6 @@
 import { HttpService } from "@nestjs/axios";
 import { Injectable } from "@nestjs/common";
 import { lastValueFrom, map } from "rxjs";
-import { ConfigService } from "../utils/config.service";
 
 @Injectable()
 export class NetworkService {
