@@ -17,7 +17,7 @@ export class HttpExceptionErrorFilter extends BaseExceptionFilter {
       "status": status,
       "error": {
         "error": {
-          "code": "30001",
+          "code": status,
           "message": exception.message,
           "target": request.url
         }

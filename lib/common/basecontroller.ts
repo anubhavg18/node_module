@@ -9,7 +9,7 @@ export class BaseController {
    * This is health check API used in every service at istio level to check the health of microservice.
    * @returns This methis will return 'success' as response
    */
-  @Get('/health')
+  @Get('/service/health')
   async healthCheck() {
     return 'success';
   }

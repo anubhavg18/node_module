@@ -17,7 +17,7 @@ let BaseController = class BaseController {
     }
 };
 __decorate([
-    (0, common_1.Get)('/health'),
+    (0, common_1.Get)('/service/health'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)

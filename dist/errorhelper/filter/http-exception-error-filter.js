@@ -21,7 +21,7 @@ let HttpExceptionErrorFilter = class HttpExceptionErrorFilter extends base_excep
             "status": status,
             "error": {
                 "error": {
-                    "code": "30001",
+                    "code": status,
                     "message": exception.message,
                     "target": request.url
                 }
