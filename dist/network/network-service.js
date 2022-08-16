@@ -13,9 +13,11 @@ exports.NetworkService = void 0;
 const axios_1 = require("@nestjs/axios");
 const common_1 = require("@nestjs/common");
 const rxjs_1 = require("rxjs");
+const config_service_1 = require("../utils/config.service");
 let NetworkService = class NetworkService {
-    constructor(httpService) {
+    constructor(httpService, configservice) {
         this.httpService = httpService;
+        this.configservice = configservice;
     }
     async get(url) {
         const observable = await this.httpService.get('url').pipe((0, rxjs_1.map)((res) => res.data));
@@ -24,7 +26,8 @@ let NetworkService = class NetworkService {
     async post(url, data, headers) {
         let headersObject = {
             'Authorization': headers.authorization,
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Ocp-Apim-Subscription-Key': this.configservice.getConfigConstantValue('baseUrlKey')
         };
         const observable = await this.httpService.post(url, JSON.stringify(data), { headers: headersObject }).pipe((0, rxjs_1.map)((res) => res.data));
         return await (0, rxjs_1.lastValueFrom)(observable);
@@ -32,7 +35,7 @@ let NetworkService = class NetworkService {
 };
 NetworkService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [axios_1.HttpService])
+    __metadata("design:paramtypes", [axios_1.HttpService, config_service_1.ConfigService])
 ], NetworkService);
 exports.NetworkService = NetworkService;
 //# sourceMappingURL=network-service.js.map
